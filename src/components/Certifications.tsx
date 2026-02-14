@@ -9,17 +9,6 @@ const Certifications = () => {
 
   const certifications = [
     {
-      title: "Java & WebTech Training",
-      issuer: "IIT Bombay",
-      date: "2024",
-      description: "Comprehensive training in Java programming and Web Technologies. Gained practical skills in building scalable web applications.",
-      icon: <FaCertificate />,
-      color: "from-purple-500 to-pink-500",
-      credentialUrl: "",
-      image: "https://placehold.co/600x400?text=IIT+Bombay+Certificate",
-      featured: true
-    },
-    {
       title: "Software Trainee Apprenticeship",
       issuer: "Test Yantra",
       date: "2023",
@@ -27,7 +16,7 @@ const Certifications = () => {
       icon: <FaAward />,
       color: "from-orange-500 to-red-500",
       credentialUrl: "",
-      featured: false
+      featured: true
     }
   ];
 
@@ -35,9 +24,30 @@ const Certifications = () => {
     {
       degree: "Master of Computer Science",
       institution: "Savitribai Phule Pune University",
-      period: "05/2022 – 04/2024",
+      period: "2022 – 2024",
       description: "Specialized in Computer Science",
-      grade: "Percentage: 62%"
+      grade: "62%"
+    },
+    {
+      degree: "B.Sc. Computer Science",
+      institution: "Tuljaram Chaturchand College, Baramati",
+      period: "2022",
+      description: "Bachelor of Science in Computer Science",
+      grade: "65%"
+    },
+    {
+      degree: "HSC – Computer Science",
+      institution: "Tuljaram Chaturchand College, Baramati",
+      period: "2019",
+      description: "Higher Secondary Certificate in Science",
+      grade: "60%"
+    },
+    {
+      degree: "SSC",
+      institution: "M.E.S. High School, Baramati",
+      period: "2017",
+      description: "Secondary School Certificate",
+      grade: "76%"
     }
   ];
 
@@ -114,7 +124,7 @@ const Certifications = () => {
                       {cert.image && (
                         <div className="mt-4 rounded-lg overflow-hidden border border-purple-500/20">
                           <img
-                            src={cert.image}
+                            // src={cert.image}
                             alt={cert.title}
                             className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                           />
