@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion';
 import {
-  FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaPhp, FaAws, FaLock,
+  FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaPhp, FaAws,
   FaShieldAlt, FaTachometerAlt, FaNetworkWired, FaCode, FaOpencart
 } from 'react-icons/fa';
 import {
@@ -102,11 +101,11 @@ const Skills = () => {
 };
 
 const SkillBadge = ({ skill }: { skill: { name: string; icon: JSX.Element } }) => (
-  <div className="group/badge relative flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-md border border-blue-500/20 rounded-xl hover:border-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:scale-105 transition-all duration-300 cursor-default">
-    <span className="text-3xl filter drop-shadow-md group-hover/badge:animate-pulse">
+  <div className="group/badge relative flex items-center gap-4 px-8 py-4 glass-card hover:border-neon-blue/50 hover:shadow-neon cursor-default">
+    <span className="text-3xl filter drop-shadow-md group-hover/badge:animate-pulse transition-transform duration-300 group-hover/badge:scale-110">
       {skill.icon}
     </span>
-    <span className="text-white font-medium text-lg tracking-wide group-hover/badge:text-cyan-300 transition-colors">
+    <span className="text-white font-medium text-lg tracking-wide group-hover/badge:text-neon-blue transition-colors">
       {skill.name}
     </span>
   </div>

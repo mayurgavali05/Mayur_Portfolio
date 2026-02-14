@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaLinkedin, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -20,37 +20,30 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      value: "mayur.gavali@email.com",
-      link: "mailto:mayur.gavali@email.com",
-      color: "from-purple-500 to-pink-500"
+      value: "mayurgavali0512@gmail.com",
+      link: "mailto:mayurgavali0512@gmail.com",
+      color: "text-neon-blue"
     },
     {
       icon: <FaPhone />,
       title: "Phone",
-      value: "+91 XXXXX XXXXX",
-      link: "tel:+91XXXXXXXXXX",
-      color: "from-blue-500 to-cyan-500"
+      value: "+91 9370369090",
+      link: "tel:+919370369090",
+      color: "text-purple-400"
     },
     {
       icon: <FaLinkedin />,
       title: "LinkedIn",
       value: "linkedin.com/in/mayurgavali",
-      link: "https://linkedin.com/in/mayurgavali",
-      color: "from-blue-600 to-blue-700"
-    },
-    {
-      icon: <FaGithub />,
-      title: "GitHub",
-      value: "github.com/mayurgavali",
-      link: "https://github.com/mayurgavali",
-      color: "from-gray-600 to-gray-800"
+      link: "https://linkedin.com/in/mayur-gavali-20b8a31b8",
+      color: "text-blue-500"
     },
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
-      value: "Pune, Maharashtra, India",
+      value: "Pune, India",
       link: "",
-      color: "from-green-500 to-emerald-500"
+      color: "text-red-400"
     }
   ];
 

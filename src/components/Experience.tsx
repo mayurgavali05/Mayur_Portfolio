@@ -9,42 +9,41 @@ const Experience = () => {
 
   const experiences = [
     {
-      company: "Textronics Design Systems Pvt. Ltd.",
-      role: "Software Developer",
-      period: "Jan 2024 - Present",
-      location: "Pune, India",
+      company: "Deinertech Software Pvt. Ltd.",
+      role: "Software Engineer",
+      period: "Aug 2025 – Oct 2025",
+      location: "Pune",
       type: "Full-time",
       achievements: [
-        "Optimized API response times by 40% through efficient database indexing and query optimization",
-        "Integrated Shopify APIs for seamless e-commerce functionality and inventory management",
-        "Implemented secure payment gateways using Razorpay and Stripe with PCI compliance",
-        "Deployed and managed applications on AWS EC2 with automated CI/CD pipelines",
-        "Led development of MERN stack applications serving 10,000+ active users"
+        "Developed REST APIs using Node.js & MongoDB",
+        "Designed scalable backend architecture for high-traffic applications",
+        "Integrated third-party APIs resulting in 40% faster response times",
+        "Deployed applications on AWS with 99.9% uptime"
       ],
       metrics: [
-        { value: 40, label: "Performance Boost", suffix: "%" },
-        { value: 10000, label: "Active Users", suffix: "+" }
-      ],
-      color: "from-purple-500 to-blue-500"
-    },
-    {
-      company: "Deinertech Solution Pvt. Ltd.",
-      role: "Backend Developer",
-      period: "Jul 2022 - Dec 2023",
-      location: "Mumbai, India",
-      type: "Full-time",
-      achievements: [
-        "Developed RESTful APIs using Node.js and Express.js for multiple client projects",
-        "Designed and optimized MySQL and MongoDB database schemas for high-performance data retrieval",
-        "Implemented JWT-based authentication and authorization systems",
-        "Built custom PHP MVC framework applications for enterprise clients",
-        "Collaborated with frontend teams to deliver seamless full-stack solutions"
-      ],
-      metrics: [
-        { value: 15, label: "Projects Delivered", suffix: "+" },
+        { value: 40, label: "Faster Response", suffix: "%" },
         { value: 99, label: "Uptime", suffix: ".9%" }
       ],
-      color: "from-blue-500 to-cyan-500"
+      color: "from-neon-blue to-blue-600"
+    },
+    {
+      company: "Textronics Design Systems Pvt. Ltd.",
+      role: "Junior Software Developer",
+      period: "May 2023 – Jul 2025",
+      location: "Navi Mumbai",
+      type: "Full-time",
+      achievements: [
+        "Built AR-based Virtual Try-On using TensorFlow + Node.js",
+        "Developed PHP MVC applications resulting in 35% bug reduction",
+        "Optimized MySQL queries delivering 50% performance boost",
+        "Implemented Shopify, OpenCart & WooCommerce integrations",
+        "Built REST APIs and React dashboards for internal tools"
+      ],
+      metrics: [
+        { value: 50, label: "Perf Boost", suffix: "%" },
+        { value: 35, label: "Bug Reduction", suffix: "%" }
+      ],
+      color: "from-purple-500 to-blue-500"
     }
   ];
 
@@ -109,9 +108,8 @@ const Experience = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`relative lg:grid lg:grid-cols-2 gap-8 items-center ${
-                  index % 2 === 0 ? '' : 'lg:grid-flow-dense'
-                }`}
+                className={`relative lg:grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'
+                  }`}
               >
                 <div className={`${index % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12 lg:col-start-2'}`}>
                   <div className="group relative p-8 bg-gradient-to-br from-gray-900 to-black border border-purple-500/20 rounded-2xl hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm hover:scale-[1.02]">

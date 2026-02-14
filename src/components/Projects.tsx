@@ -1,65 +1,47 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaExternalLinkAlt, FaReact, FaNode } from 'react-icons/fa';
-import { SiMongodb, SiMysql, SiExpress } from 'react-icons/si';
+import { FaExternalLinkAlt, FaReact, FaNodeJs, FaPhp, FaAws, FaYoutube, FaPlay } from 'react-icons/fa';
+import { SiMongodb, SiMysql, SiExpress, SiTensorflow } from 'react-icons/si';
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const projects = [
-    {
-      title: "AR Virtual Try-On E-commerce Platform",
-      description:
-        "Enterprise-level AR-based e-commerce solution developed for a fashion company. Built a virtual try-on engine allowing users to upload images, change backgrounds, and preview garments in real-time. Integrated payment gateways, Shopify APIs, and deployed on AWS with scalable backend architecture.",
-      tech: [
-        { name: "React", icon: <FaReact /> },
-        { name: "Node.js", icon: <FaNode /> },
-        { name: "MongoDB", icon: <SiMongodb /> }
-      ],
-      image:
-        "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800",
-      website: "https://fab3d.in/",
-      youtube: "https://www.youtube.com/shorts/TM6_IBQtbSU",
-      company: true
+  const project = {
+    title: "Virtual Try-On & E-Commerce Platform",
+    subtitle: "(FAB3D)",
+    type: "AR-based E-Commerce & Virtual Try-On Platform",
+    description: "An advanced AR-based Virtual Try-On and E-Commerce platform that allows users to preview garments digitally before purchase. The system supports realistic fabric visualization, background handling, optimized image rendering, and seamless integration with multiple CMS platforms.",
+    features: [
+      "AR-based garment virtual try-on experience",
+      "Real-time fabric and texture rendering",
+      "Background removal and image optimization",
+      "Optimized performance for fast load times",
+      "Multi-CMS integration (Shopify, OpenCart, WooCommerce)",
+      "Scalable backend architecture using Node.js",
+      "Secure REST APIs for product and user operations"
+    ],
+    tech: [
+      { name: "React.js", icon: <FaReact className="text-[#61DAFB]" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" /> },
+      { name: "Express.js", icon: <SiExpress className="text-white" /> },
+      { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+      { name: "MySQL", icon: <SiMysql className="text-[#4479A1]" /> },
+      { name: "PHP (MVC)", icon: <FaPhp className="text-[#777BB4]" /> },
+      { name: "TensorFlow", icon: <SiTensorflow className="text-[#FF6F00]" /> },
+      { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> }
+    ],
+    links: {
+      live: "https://fab3d.in/",
+      demo: "https://www.youtube.com/shorts/TM6_IBQtbSU"
     },
-    {
-      title: "Vendor Management Dashboard",
-      description:
-        "Full-featured dashboard system built for internal company operations. Includes order tracking, customer management, invoice generation, inventory monitoring, and real-time notifications using REST APIs and secure authentication.",
-      tech: [
-        { name: "React", icon: <FaReact /> },
-        { name: "Node.js", icon: <FaNode /> },
-        { name: "MySQL", icon: <SiMysql /> },
-        { name: "Express", icon: <SiExpress /> }
-      ],
-      image:
-        "https://images.pexels.com/photos/7679454/pexels-photo-7679454.jpeg?auto=compress&cs=tinysrgb&w=800",
-      website: "https://dashboard-live-site.com",
-      youtube: "https://youtube.com/dashboard-demo",
-      company: true
-    },
-    {
-      title: "Admin Analytics Dashboard",
-      description:
-        "Advanced admin panel for managing products, users, payments, and reports. Implemented role-based access control, dynamic reporting, and secure backend architecture designed for high performance and scalability.",
-      tech: [
-        { name: "React", icon: <FaReact /> },
-        { name: "Node.js", icon: <FaNode /> },
-        { name: "MongoDB", icon: <SiMongodb /> }
-      ],
-      image:
-        "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      website: "https://admin-dashboard.com",
-      youtube: "https://youtube.com/admin-demo",
-      company: true
-    }
-  ];
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  };
 
   return (
     <section ref={ref} id="projects" className="relative py-32 bg-black overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-purple-900/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-blue-900/10"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8">
         <motion.div
@@ -70,96 +52,105 @@ const Projects = () => {
         >
           <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Featured Projects
+              Featured Project
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Production-ready company projects showcasing real-world scalability
+            Showcasing innovation in Augmented Reality and E-Commerce
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative"
-            >
-              <div className="relative h-full bg-gradient-to-br from-gray-900 to-black border border-purple-500/20 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm hover:scale-[1.02]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="glass-card bg-gradient-to-br from-gray-900 via-black to-gray-900 border-neon-blue/30 rounded-3xl overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.1)] hover:shadow-[0_0_50px_rgba(0,212,255,0.2)] transition-shadow duration-500"
+        >
+          <div className="grid lg:grid-cols-2 gap-0">
+            {/* Left Column: Content */}
+            <div className="p-8 sm:p-12 flex flex-col justify-center space-y-8 relative">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-neon-blue/5 rounded-full blur-[80px] pointer-events-none"></div>
 
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
+              <div>
+                <div className="inline-block px-4 py-1.5 mb-4 bg-neon-blue/10 border border-neon-blue/30 rounded-full">
+                  <span className="text-neon-blue text-sm font-semibold tracking-wide uppercase">
+                    {project.type}
+                  </span>
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+                <span className="text-2xl text-purple-400 font-medium block mb-6">{project.subtitle}</span>
 
-                  {project.company && (
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
-                        COMPANY PROJECT
-                      </span>
+                <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                  {project.description}
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  {project.features.map((feature, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-blue shadow-[0_0_10px_rgba(0,212,255,0.8)]"></span>
+                      <span className="text-gray-400">{feature}</span>
                     </div>
-                  )}
+                  ))}
                 </div>
 
-                <div className="relative p-6 space-y-4">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-gray-400 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <div
-                        key={techIndex}
-                        className="flex items-center gap-2 px-3 py-1.5 bg-black/40 border border-purple-500/20 rounded-lg text-sm"
-                      >
-                        <span className="text-purple-400">{tech.icon}</span>
-                        <span className="text-gray-300 font-medium">{tech.name}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4 pt-4">
-                    {project.website && (
-                      <a
-                        href={project.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
-                      >
-                        <FaExternalLinkAlt />
-                        <span>Live Website</span>
-                      </a>
-                    )}
-
-                    {project.youtube && (
-                      <a
-                        href={project.youtube}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
-                      >
-                        <span>▶ Demo Video</span>
-                      </a>
-                    )}
-                  </div>
+                <div className="flex flex-wrap gap-3 mb-10">
+                  {project.tech.map((tech, i) => (
+                    <div key={i} className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm hover:border-neon-blue/30 hover:bg-white/10 transition-colors duration-300">
+                      <span className="text-lg">{tech.icon}</span>
+                      <span className="text-sm font-medium text-gray-300">{tech.name}</span>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-300"></div>
-
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href={project.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 bg-neon-blue text-black font-bold rounded-xl hover:bg-neon-blue/90 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all duration-300"
+                  >
+                    <FaExternalLinkAlt />
+                    View Live Project
+                  </a>
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 hover:scale-105 hover:border-red-500/50 hover:text-red-400 transition-all duration-300 group"
+                  >
+                    <FaYoutube className="text-red-500 group-hover:scale-110 transition-transform" />
+                    Watch Demo Video
+                  </a>
+                </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+
+            {/* Right Column: Visual */}
+            <div className="relative h-[400px] lg:h-auto overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"></div>
+
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:scale-110 hover:bg-red-600 transition-all duration-300 pl-1"
+                >
+                  <FaPlay />
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

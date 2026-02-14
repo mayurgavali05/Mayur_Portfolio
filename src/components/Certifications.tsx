@@ -9,61 +9,35 @@ const Certifications = () => {
 
   const certifications = [
     {
-      title: "Full Stack Development Certificate",
+      title: "Java & WebTech Training",
       issuer: "IIT Bombay",
-      date: "2022",
-      description: "Comprehensive program covering MERN stack, system design, and cloud deployment",
+      date: "2024",
+      description: "Comprehensive training in Java programming and Web Technologies. Gained practical skills in building scalable web applications.",
       icon: <FaCertificate />,
       color: "from-purple-500 to-pink-500",
-      credentialUrl: "https://certificates.example.com/iit-bombay",
+      credentialUrl: "",
+      image: "https://placehold.co/600x400?text=IIT+Bombay+Certificate",
       featured: true
     },
     {
-      title: "AWS Certified Developer",
-      issuer: "Amazon Web Services",
+      title: "Software Trainee Apprenticeship",
+      issuer: "Test Yantra",
       date: "2023",
-      description: "Expertise in deploying and managing applications on AWS",
+      description: "Intensive software training program focusing on manual/automation testing and software development life cycle methodologies.",
       icon: <FaAward />,
       color: "from-orange-500 to-red-500",
-      credentialUrl: "https://aws.amazon.com/certification",
-      featured: false
-    },
-    {
-      title: "Node.js Advanced Certification",
-      issuer: "Node.js Foundation",
-      date: "2023",
-      description: "Advanced Node.js patterns, performance optimization, and scalability",
-      icon: <FaCertificate />,
-      color: "from-green-500 to-emerald-500",
-      credentialUrl: "https://nodejs.org/certification",
-      featured: false
-    },
-    {
-      title: "MongoDB Professional",
-      issuer: "MongoDB University",
-      date: "2022",
-      description: "Database design, aggregation framework, and performance tuning",
-      icon: <FaAward />,
-      color: "from-green-600 to-green-700",
-      credentialUrl: "https://university.mongodb.com",
+      credentialUrl: "",
       featured: false
     }
   ];
 
   const education = [
     {
-      degree: "Master of Computer Applications (MCA)",
-      institution: "University Name",
-      period: "2020 - 2022",
-      description: "Specialized in Software Engineering and Database Management",
-      grade: "CGPA: 8.5/10"
-    },
-    {
-      degree: "Bachelor of Computer Applications (BCA)",
-      institution: "University Name",
-      period: "2017 - 2020",
-      description: "Foundation in Computer Science and Programming",
-      grade: "CGPA: 8.2/10"
+      degree: "Master of Computer Science",
+      institution: "Savitribai Phule Pune University",
+      period: "05/2022 – 04/2024",
+      description: "Specialized in Computer Science",
+      grade: "Percentage: 62%"
     }
   ];
 
@@ -136,15 +110,28 @@ const Certifications = () => {
                         {cert.description}
                       </p>
 
-                      <a
-                        href={cert.credentialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${cert.color} text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-sm`}
-                      >
-                        <span>View Credential</span>
-                        <FaExternalLinkAlt />
-                      </a>
+                      {/* @ts-ignore */}
+                      {cert.image && (
+                        <div className="mt-4 rounded-lg overflow-hidden border border-purple-500/20">
+                          <img
+                            src={cert.image}
+                            alt={cert.title}
+                            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      )}
+
+                      {cert.credentialUrl && (
+                        <a
+                          href={cert.credentialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${cert.color} text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-sm`}
+                        >
+                          <span>View Credential</span>
+                          <FaExternalLinkAlt />
+                        </a>
+                      )}
                     </div>
                   </div>
 

@@ -49,68 +49,51 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="relative p-8 bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl backdrop-blur-sm">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/5 to-transparent rounded-2xl"></div>
-              <p className="text-gray-300 text-lg leading-relaxed relative z-10">
-                Full Stack Developer with <span className="text-purple-400 font-semibold">2.5+ years of experience</span> specializing in building robust backend systems and scalable web applications. Expert in <span className="text-blue-400 font-semibold">Node.js, React, MongoDB, MySQL, and AWS</span> cloud infrastructure.
-              </p>
-            </div>
-
-            <div className="relative p-8 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl backdrop-blur-sm">
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Proven track record in <span className="text-purple-400 font-semibold">optimizing system performance</span>, implementing secure payment gateways (Razorpay, Stripe), and integrating complex APIs including Shopify. Proficient in PHP MVC architecture and modern DevOps practices.
-              </p>
-            </div>
-
-            <div className="relative p-8 bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl backdrop-blur-sm">
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Passionate about <span className="text-blue-400 font-semibold">clean code</span>, <span className="text-purple-400 font-semibold">system architecture</span>, and delivering production-ready solutions that drive business value. Currently seeking opportunities to contribute to innovative projects.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid sm:grid-cols-2 gap-6"
-          >
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="group relative p-6 bg-black/40 border border-purple-500/20 rounded-xl hover:border-purple-500/50 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-sm"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 rounded-xl transition-all duration-300"></div>
-
-                <div className="relative z-10 space-y-3">
-                  <div className="text-4xl text-purple-400 group-hover:text-purple-300 transition-colors">
-                    {highlight.icon}
-                  </div>
-                  <h3 className="text-white font-semibold text-lg">
-                    {highlight.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {highlight.description}
-                  </p>
-                </div>
-
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-              </motion.div>
-            ))}
-          </motion.div>
+        <div className="relative p-8 md:p-12 glass-card border-neon-blue/20 bg-navy-900/30">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-neon-blue/5 to-transparent rounded-2xl pointer-events-none"></div>
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed relative z-10 font-light">
+            Full Stack Software Engineer with <span className="text-white font-medium">2.5+ years of experience</span> building scalable web platforms, AR-based applications, and e-commerce integrations. Strong expertise in <span className="text-neon-blue">Node.js, React.js, PHP MVC, MySQL, MongoDB, AWS, REST APIs</span>, and CMS plugin development.
+            <br /><br />
+            Focused on <span className="text-white font-medium">clean architecture, performance optimization, backend security</span>, and real-world product delivery.
+          </p>
         </div>
-      </div>
-    </section>
+
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="grid sm:grid-cols-2 gap-6"
+        >
+          {highlights.map((highlight, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+              className="group relative p-6 bg-black/40 border border-purple-500/20 rounded-xl hover:border-purple-500/50 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-sm"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 rounded-xl transition-all duration-300"></div>
+
+              <div className="relative z-10 space-y-3">
+                <div className="text-4xl text-purple-400 group-hover:text-purple-300 transition-colors">
+                  {highlight.icon}
+                </div>
+                <h3 className="text-white font-semibold text-lg">
+                  {highlight.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {highlight.description}
+                </p>
+              </div>
+
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+      </div >
+    </section >
   );
 };
 
