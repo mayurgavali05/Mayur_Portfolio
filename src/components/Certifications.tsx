@@ -120,16 +120,7 @@ const Certifications = () => {
                         {cert.description}
                       </p>
 
-                      {/* @ts-ignore */}
-                      {cert.image && (
-                        <div className="mt-4 rounded-lg overflow-hidden border border-purple-500/20">
-                          <img
-                            // src={cert.image}
-                            alt={cert.title}
-                            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                      )}
+
 
                       {cert.credentialUrl && (
                         <a

@@ -11,10 +11,11 @@ const Contact = () => {
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    _honey: ''
   });
 
-  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const contactInfo = [
     {
@@ -47,13 +48,36 @@ const Contact = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus('success');
-    setTimeout(() => {
-      setFormStatus('idle');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    setFormStatus('sending');
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/mayurgavali0512@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _captcha: "false" // Disable captcha for smoother experience as per request flavor
+        })
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '', _honey: '' });
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -152,6 +176,12 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-2xl"></div>
 
               <div className="relative z-10 space-y-6">
+                {/* Honeypot for spam protection */}
+                <input type="text" name="_honey" style={{ display: 'none' }} />
+
+                {/* Disable Captcha */}
+                <input type="hidden" name="_captcha" value="false" />
+
                 <div>
                   <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
                     Your Name
@@ -218,10 +248,17 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-purple-500/50"
+                  disabled={formStatus === 'sending'}
+                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-purple-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <FaPaperPlane />
-                  <span>Send Message</span>
+                  {formStatus === 'sending' ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <FaPaperPlane />
+                      <span>Send Message</span>
+                    </>
+                  )}
                 </button>
 
                 {formStatus === 'success' && (
@@ -231,6 +268,16 @@ const Contact = () => {
                     className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-center"
                   >
                     Thank you! Your message has been sent successfully.
+                  </motion.div>
+                )}
+
+                {formStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-center"
+                  >
+                    Something went wrong. Please try again later.
                   </motion.div>
                 )}
               </div>

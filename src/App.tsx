@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Patent from './components/Patent';
 import Certifications from './components/Certifications';
 import PhotoResume from './components/PhotoResume';
+import GuestLectures from './components/GuestLectures';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -21,6 +22,7 @@ function App() {
       <Projects />
       <Patent />
       <Certifications />
+      <GuestLectures />
       <PhotoResume />
       <Contact />
       <Footer />
