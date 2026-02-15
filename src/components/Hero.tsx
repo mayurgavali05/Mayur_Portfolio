@@ -73,7 +73,7 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-6 pt-8">
-            <a href="https://github.com/mayurgavali" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-2xl">
+            <a href="https://github.com/mayurgavali05" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-2xl">
               <FaGithub />
             </a>
             <a href="https://linkedin.com/in/mayur-gavali-20b8a31b8" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-neon-blue transition-colors text-2xl">
